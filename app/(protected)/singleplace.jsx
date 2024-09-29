@@ -45,7 +45,7 @@ const SinglePlacebox = () => {
           </Link>}
 
           {data?.phone&&<Link
-            href={''}
+            href={`/profile?email=${data?.user_info?.email}`}
             className={`flex-row items-center bg-green-400 p-2 rounded-lg mb-2 w-fit`}
           >
             <Entypo name="phone" size={16} color="white" />

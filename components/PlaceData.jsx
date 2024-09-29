@@ -72,7 +72,7 @@ const PlaceData = ({district,placeType,searchword,profile,refreshDataFun}) => {
       {/* PlaceCard */}
       <View className="p-2">
         <View className="flex flex-row justify-between items-center">
-          <Text className='text-gray-400'>Places</Text>
+          <Text className='text-gray-400 text-lg'>Places</Text>
           <TouchableOpacity onPress={getMyplaces} className='w-[50px] flex justify-center items-center'>
             <FontAwesome name='refresh' size={20} color={'#bfbfbf'} />
           </TouchableOpacity>
@@ -83,7 +83,7 @@ const PlaceData = ({district,placeType,searchword,profile,refreshDataFun}) => {
             palcesmine&&palcesmine.map((item,index)=>{
               if(profile){
                 if(item?.user_info?.email===data?.email){
-                  return <Placebox data={item} key={index} getMyplaces={getMyplaces}/>
+                  return <Placebox data={item} key={index} profile={true} getMyplaces={getMyplaces}/>
                 }
               }else{
                 if(searchword){
@@ -106,7 +106,7 @@ const PlaceData = ({district,placeType,searchword,profile,refreshDataFun}) => {
       <View className="m-2 rounded bg-[#4A7D4A] p-4">
         <Text className="text-2xl mb-2 text-gray-100">Start Contributing Today!</Text>
         <Text style={{lineHeight:20}} className=" text-gray-200 ">Become a part of the Village Tour BD community! Share your hidden gems and help fellow travelers discover the beauty of Bangladesh's villages. Your contributions can make a difference.</Text>
-        <Link href={data?.name?'/-contribution':"/login"} className={  `w-1/2 flex-row items-center my-4 bg-[#F9D189] p-2 px-5 rounded-3xl`}>
+        <Link href={data?.name?'/contribution':"/login"} className={  `w-1/2 flex-row items-center my-4 bg-[#F9D189] p-2 px-5 rounded-3xl text-center`}>
             <Text className={  `text-gray-800 ml-2`}>Be A Contributer</Text>
         </Link>
       </View>

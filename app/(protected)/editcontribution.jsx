@@ -10,14 +10,14 @@ import Mainbg from '../../components/Mainbg';
 import { api_URl } from '../../assets/lib';
 import { Picker } from '@react-native-picker/picker';
 import { AuthProvider } from '../_layout';
-import { useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useIsFocused } from '@react-navigation/native';
 import Contactbg from '../../components/Contactbg';
 import * as ImagePicker from 'expo-image-picker';
 import { imageUpload } from '../../assets/imageupload';
 
 
-const Contribution = () => {
+const EditContribution = () => {
   const [region, setRegion] = useState('');
   const [placeType, setPlaceType] = useState('');
   const [title, settitle] = useState('');
@@ -40,6 +40,7 @@ const Contribution = () => {
 
   const [image, setImage] = useState(null);
   const [uploadeImages, setuploadeImages] = useState([]);
+  const queryName = useLocalSearchParams()
 
   const pickImage = async () => {
     if(isUploading){
@@ -100,20 +101,32 @@ const Contribution = () => {
         setplacetypesare(result?.result)
     })
   }
+
   const getMyplaces = ()=>{
     fetch(api_URl+"/get-item",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
         },
-        body: JSON.stringify({query:{},table:"places"})
+        body: JSON.stringify({query:{id:queryName?.id},table:"places"})
     })
     .then((res)=>res.json())
     .then((result)=>{
         console.log(result);
         
+        const data = result?.result[0]
+        console.log(result?.result[0]);
         
-        setpalcesmine(result?.result)
+        setPlaceType(data?.placeType)
+        setuploadeImages(data?.images)
+        setRegion(data?.region)
+        setselectedDistrict(data?.district)
+        setdescription(data?.description)
+        setgooglemap(data?.googlemap)
+        setphone(data?.phone)
+        settitle(data?.title)
+        setwebsite(data?.website)
+        
     })
   }
 
@@ -129,13 +142,12 @@ const Contribution = () => {
     getdistrict()
     getplacetype()
     getMyplaces()
+   
     
     
-  }, []);
+  }, [isFocued]);
 
-  useEffect(() => {
-    console.log(uploadeImages);
-  }, [uploadeImages]);
+
 
 
 
@@ -174,12 +186,12 @@ const Contribution = () => {
 
     setisLoading(true)
 
-    fetch(api_URl+"/insert-item",{
+    fetch(api_URl+"/update-item",{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
         },
-        body: JSON.stringify({data:formData,table:"places"})
+        body: JSON.stringify({data:formData,table:"places",id:queryName?.id})
     })
     .then((res)=>res.json())
     .then((result)=>{
@@ -190,15 +202,8 @@ const Contribution = () => {
       }
       
      
-      setPlaceType('')
-      setRegion('')
-     
-      setdescription('')
-      setgooglemap('')
-      setphone('')
-      settitle('')
-      setwebsite('')
       getMyplaces()
+      
       ToastAndroid.show(result?.message,ToastAndroid.LONG)
     })
 
@@ -210,12 +215,10 @@ const Contribution = () => {
       <Mainbg/>
       <View className='flex items-center mt-10'>
         <View className="w-full">
-            <Text className={  `text-white text-3xl font-bold text-center`}>Uncover the Hidden</Text>
+            <Text className={  `text-white text-3xl font-bold text-center`}>Do Changes</Text>
             
-            <Text className={  `text-3xl font-bold  text-center text-green-400`}>Treasures of Bangladesh’s </Text>
-            <Text className={  `text-white text-3xl mb-4 font-bold text-center`}>Villages!</Text>
-
-            <Text className={  `text-gray-200 mb-2 text-center`}>Help us showcase the beauty of Bangladesh’s villages! Share your discoveries, from hidden spots to local stories, and contribute to our journey of revealing the cultural richness of village life. Your insights can make a difference contribute today!</Text>
+            <Text className={  `text-3xl font-bold  text-center text-green-400`}>Of your Places </Text>
+          
         </View>
       </View>
       <View className='flex items-center'>
@@ -334,7 +337,7 @@ const Contribution = () => {
           className={  `bg-green-500 text-white p-3 rounded-md`}
           onPress={handleFindPlace}
         >
-          <Text className="text-center text-md font-bold">ADD THE PLACE</Text>
+          <Text className="text-center text-md font-bold">UPDATE THE PLACE</Text>
         </TouchableOpacity>}
 
         {isLoading&&<TouchableOpacity
@@ -346,26 +349,6 @@ const Contribution = () => {
       </View>
       
 
-      {/* PlaceCard */}
-      <View className="p-2">
-        <View className="flex flex-row justify-between items-center">
-          <Text className='text-gray-400 text-lg'>Places</Text>
-          <TouchableOpacity onPress={getMyplaces} className='w-[50px] flex justify-center items-center'>
-            <FontAwesome name='refresh' size={20} color={'#bfbfbf'} />
-          </TouchableOpacity>
-        </View>
-        {
-            palcesmine&&palcesmine.map((item,index)=>{
-                if(data?.email===item?.user_info?.email){
-                  return <Placebox data={item} key={index}/>
-                }
-                
-            })
-        }
-        
-
-        <Popularcats/>
-      </View>
 
 
      <Contactbg/>
@@ -377,4 +360,4 @@ const Contribution = () => {
   );
 };
 
-export default Contribution;
+export default EditContribution;

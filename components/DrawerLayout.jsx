@@ -44,7 +44,9 @@ export default function DrawerLayout() {
       <Drawer 
         screenOptions={({ navigation }) => ({
             headerLeft:()=>{
-                return <Image resizeMode='contain' source={require('../assets/images/mainlogo.png')} className={ `my-2 ml-3 max-w-[200px]`} />
+                return <TouchableOpacity onPress={()=>navigation.navigate("index")}>
+                  <Image resizeMode='contain' source={require('../assets/images/mainlogo.png')} className={ `my-2 ml-3 max-w-[200px]`} />
+                </TouchableOpacity>
             },
             headerRight:()=>{
                 return <View className="flex mr-3 flex-row items-center space-x-2">
@@ -127,6 +129,13 @@ export default function DrawerLayout() {
           name="forgotpassword" // This is the name of the page and must match the url from root
           options={{
             drawerLabel: 'Forgot Password',
+            drawerItemStyle:{display:'none'}
+          }}
+        />
+        <Drawer.Screen
+          name="editcontribution" // This is the name of the page and must match the url from root
+          options={{
+            drawerLabel: 'Edit Contribution',
             drawerItemStyle:{display:'none'}
           }}
         />

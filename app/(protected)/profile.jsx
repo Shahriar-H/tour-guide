@@ -77,7 +77,7 @@ const ContactProfile = ({email}) => {
   
    
     
-  }, []);
+  }, [isFocused]);
   useEffect(() => {
     console.log("path",parameters);
   }, [isFocused]);
