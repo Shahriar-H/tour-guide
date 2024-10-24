@@ -1,6 +1,7 @@
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+You can [Check the backend here]([https://expo.dev](https://github.com/Shahriar-H/tour-guide-api)) NodeJS,ExpressJS
 
 ## Get started
 
