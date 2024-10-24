@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, ScrollView, Image, ToastAndroid } from 'react-native';
 import { FontAwesome, Entypo } from '@expo/vector-icons';
-import Mainbg from '../../components/Mainbg';
+import Mainbg1 from '../../components/Mainbg1';
 import Footer from '../../components/Footer';
 import { api_URl } from '../../assets/lib';
 
@@ -41,17 +41,23 @@ export default function ContactForm() {
 
   return (
     <ScrollView className="bg-gray-900 flex-1">
-      <Mainbg/>
+      <Mainbg1/>
 
-      <View className="h-32"></View>
-      <View className='flex items-center mt-10'>
+      <View className="h-20"></View>
+      <View className='flex items-center'>
         <View className="w-2/3">
             <Text className={  `text-white text-3xl font-bold text-center`}>Contact</Text>
             <Text className={  `text-3xl font-bold mb-4 text-center text-green-400`}>For any Query</Text>
 
         </View>
+        <View className='flex items-center'>
+          <TouchableOpacity className={  `flex-row items-center mb-4 bg-green-500 p-2 px-5 rounded-3xl`}>
+              <Entypo name="location-pin" size={24} color="white" />
+              <Text className={  `text-gray-100 ml-2`}>All of Bangladesh</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-      <View className="h-40"></View>
+      <View className="h-32"></View>
 
 
       {/* Heading */}

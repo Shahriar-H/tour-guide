@@ -12,7 +12,7 @@ const SinglePlacebox = () => {
   
   
   return (
-    <ScrollView className="bg-black">
+    <ScrollView className="bg-gray-900">
       <View className={`w-full  py-5 px-4 mt-4`}>
         <View className="flex flex-row mb-2 items-start border-b pb-2 border-gray-700">
           <Text className="mt-1"><Entypo name="location-pin" size={30} color="white" /></Text>
@@ -29,7 +29,7 @@ const SinglePlacebox = () => {
         
         <View className="flex flex-row justify-start space-x-2 items-center mt-2">
           {data?.googlemap&&<Link
-            href={''}
+            href={data?.googlemap}
             className={`flex-row bg-green-400 p-2 rounded-lg items-center mb-2 w-fit`}
           >
             <Entypo name="location-pin" size={16} color="white" />
@@ -37,7 +37,7 @@ const SinglePlacebox = () => {
           </Link>}
 
           {data?.website&&<Link
-            href={''}
+            href={data?.website}
             className={`flex-row items-center bg-green-400 p-2 rounded-lg mb-2 w-fit`}
           >
             <Entypo name="link" size={16} color="white" />
@@ -48,7 +48,7 @@ const SinglePlacebox = () => {
             href={`/profile?email=${data?.user_info?.email}`}
             className={`flex-row items-center bg-green-400 p-2 rounded-lg mb-2 w-fit`}
           >
-            <Entypo name="phone" size={16} color="white" />
+            <Entypo name="user" size={16} color="white" />
             <Text className={`text-gray-100 ml-2`}>Contact</Text>
           </Link>}
 

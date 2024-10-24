@@ -21,7 +21,7 @@ const Home = () => {
   };
 
   return (
-    <ScrollView className={  ` bg-black`}>
+    <ScrollView className={  ` bg-gray-100`}>
      
       <View className='flex items-center'>
         <View className="w-2/3">
@@ -37,7 +37,7 @@ const Home = () => {
             <Text className={  `text-gray-100 ml-2`}>All of Bangladesh</Text>
         </TouchableOpacity>
       </View>
-      <View className={  `w-full px-2`}>
+      <View className={  `w-full px-4`}>
         <TextInput
           value={region}
           onChangeText={setRegion}
@@ -76,7 +76,7 @@ const Home = () => {
       
 
       {/* PlaceCard */}
-      <View className="p-2">
+      <View className="p-4">
         <Placebox/>
         <Placebox/>
         <Placebox/>

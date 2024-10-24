@@ -127,15 +127,16 @@ const ShowProfile = ({email}) => {
   }
 
   return (
-    <View className="m-2 ">
+    <View className="m-4 ">
       <View className="bg-[#0000009b] rounded-md p-3 flex flex-row space-x-3">
         <View className="justify-center items-center space-y-2">
             <Image className='h-20 w-20 border-2 border-green-500 rounded-full' source={{uri:userInfo?.image??"https://res.cloudinary.com/dqljmx6ai/image/upload/v1726842097/file_gu2tc2.jpg"}}/>
-            {data?.email===userInfo?.email&&
-            <Link href={'/edit-profile?email='+data?.email} className="rounded-md text-center">
-                <Text className="text-center text-xs text-white"><FontAwesome name='edit' /> Edit</Text>
-            </Link>}
+            
         </View>
+        {data?.email===userInfo?.email&&
+        <Link href={'/edit-profile?email='+data?.email} className="rounded-md absolute right-3 top-3 text-center">
+            <Text className="text-center text-xs text-white"><FontAwesome name='edit' /> Edit</Text>
+        </Link>}
         <View>
             <Text className="text-white text-xl font-bold">{userInfo?.name}</Text>
             <Text className="text-gray-300 text-md"><FontAwesome name='envelope' /> {userInfo?.email}</Text>

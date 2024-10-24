@@ -65,7 +65,7 @@ const ResetPasswordScreen = () => {
     };
   
     return (
-      <View className="flex flex-col items-center justify-center h-full bg-black">
+      <View className="flex flex-col items-center justify-center h-full bg-black p-3">
         <Header2/>
         <View className="rounded px-4 w-full bg-gray-900 p-3 min-h-[400px] pt-10">
         {/* Forgot Password Text */}

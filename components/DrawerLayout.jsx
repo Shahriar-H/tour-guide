@@ -105,6 +105,13 @@ export default function DrawerLayout() {
           }}
         />
         <Drawer.Screen
+          name="catwiseplaces" // This is the name of the page and must match the url from root
+          options={{
+            drawerLabel: 'catwiseplaces',
+            drawerItemStyle:{display:'none'}
+          }}
+        />
+        <Drawer.Screen
           name="About" // This is the name of the page and must match the url from root
           options={{
             drawerLabel: 'About Us',

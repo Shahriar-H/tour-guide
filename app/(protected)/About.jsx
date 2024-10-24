@@ -1,23 +1,31 @@
 import React from "react";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
-import Mainbg from "../../components/Mainbg";
+import Mainbg1 from "../../components/Mainbg1";
 import Contactbg from "../../components/Contactbg";
 import Footer from "../../components/Footer";
+import { TouchableOpacity } from "react-native";
+import { Entypo } from "@expo/vector-icons";
 
 const About = () => {
   return (
     <ScrollView className="bg-black">
-      <Mainbg />
-      <View className="h-32"></View>
-      <View className='flex items-center mt-10'>
+      <Mainbg1 />
+      <View className="h-20"></View>
+      <View className='flex items-center'>
         <View className="w-2/3">
             <Text className={  `text-white text-3xl font-bold text-center`}>About</Text>
             <Text className={  `text-3xl font-bold mb-4 text-center text-green-400`}>Our Services</Text>
 
         </View>
+        <View className='flex items-center'>
+          <TouchableOpacity className={  `flex-row items-center mb-4 bg-green-500 p-2 px-5 rounded-3xl`}>
+              <Entypo name="location-pin" size={24} color="white" />
+              <Text className={  `text-gray-100 ml-2`}>All of Bangladesh</Text>
+          </TouchableOpacity>
+        </View>
       </View>
       {/* Section 1: Who We Are */}
-      <View className="mb-8 mt-40">
+      <View className="mb-8 mt-32">
         <Image
           source={{ uri: "https://logicranks.com/wp-content/uploads/2021/04/Our-Story-About-Us-.png" }} // Replace with your own image URL
           className="w-full h-40 mb-4" // Add styles for your image, like height and width

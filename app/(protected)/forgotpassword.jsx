@@ -67,7 +67,7 @@ const ForgotPassword = () => {
     </div>
   `;
     setisLoading(true)
-    fetch("https://zas71.dhopaelo.com/api/sendemail-tour", {
+    fetch(api_URl+"/sendemail", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, Image } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
-import Mainbg from '../../components/Mainbg';
+import { Entypo, FontAwesome } from '@expo/vector-icons';
+import Mainbg1 from '../../components/Mainbg1';
 import Footer from '../../components/Footer';
 
 const FAQItem = ({ question, answer }) => {
@@ -48,16 +48,22 @@ export default function FAQSection() {
 
   return (
     <ScrollView className="bg-black">
-        <Mainbg/>
-        <View className="h-32"></View>
-      <View className='flex items-center mt-10'>
+        <Mainbg1/>
+        <View className="h-20"></View>
+      <View className='flex items-center'>
         <View className="w-2/3">
             <Text className={  `text-white text-3xl font-bold text-center`}>FAQ</Text>
             <Text className={  `text-3xl font-bold mb-4 text-center text-green-400`}>Frequently Asked</Text>
 
         </View>
+        <View className='flex items-center'>
+          <TouchableOpacity className={  `flex-row items-center mb-4 bg-green-500 p-2 px-5 rounded-3xl`}>
+              <Entypo name="location-pin" size={24} color="white" />
+              <Text className={  `text-gray-100 ml-2`}>All of Bangladesh</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-      <View className="h-40"></View>
+      <View className="h-32"></View>
         {/* https://cdni.iconscout.com/illustration/premium/thumb/faq-illustration-download-in-svg-png-gif-file-formats--customer-questions-and-answers-helpdesk-pack-network-communication-illustrations-3749051.png?f=webp */}
         <Image
           source={{ uri: "https://cdni.iconscout.com/illustration/premium/thumb/faq-illustration-download-in-svg-png-gif-file-formats--customer-questions-and-answers-helpdesk-pack-network-communication-illustrations-3749051.png?f=webp" }} // Replace with your own image URL

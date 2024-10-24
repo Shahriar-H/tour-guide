@@ -4,7 +4,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const Contactbg = () => {
     return (
-        <View className="relative h-60 m-2 overflow-hidden">
+        <View className="relative h-60 m-4 overflow-hidden">
             <Image resizeMode='cover' className="w-full rounded-md h-full absolute top-0 left-0 z-30" source={require("../assets/images/contactbg.jpg")} />
             <View className="h-full w-full bg-[#0000006b] justify-center items-center p-4 absolute top-0 left-0 z-40">
                 <Text className="text-2xl mb-2 text-center text-gray-100">24/7 Support</Text>

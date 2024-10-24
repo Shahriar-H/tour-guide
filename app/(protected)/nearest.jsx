@@ -94,7 +94,7 @@ const NearestPlace = () => {
   }
 
   return (
-    <ScrollView className={  ` bg-black`}>
+    <ScrollView className={  ` bg-gray-800`}>
       <Mainbg/>
       <View className='flex items-center mt-10'>
         <View className="w-2/3">
@@ -109,7 +109,7 @@ const NearestPlace = () => {
             <Text className={  `text-gray-100 ml-2`}>All of Bangladesh</Text>
         </TouchableOpacity>
       </View>
-      <View className={  `px-4 rounded-md bg-[#000000bd] py-4 m-2`}>
+      <View className={  `px-4 rounded-md bg-[#000000bd] py-4 m-4`}>
         <Picker
             selectedValue={selectedDistrict}
             

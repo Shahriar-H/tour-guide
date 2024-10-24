@@ -206,7 +206,7 @@ const Contribution = () => {
   };
 
   return (
-    <ScrollView className={  ` bg-black`}>
+    <ScrollView className={  ` bg-gray-800`}>
       <Mainbg/>
       <View className='flex items-center mt-10'>
         <View className="w-full">
@@ -224,8 +224,9 @@ const Contribution = () => {
             <Text className={  `text-gray-100 ml-2`}>All of Bangladesh</Text>
         </TouchableOpacity> */}
       </View>
-      <View className={  ` bg-[#2e2e2ecd] m-3 px-4 py-4`}>
+      <View className={  ` bg-[#000000cd] m-4 px-4 py-4`}>
         <Text className={  `text-white text-xl mb-4 font-bold`}>Share Your Village Discoveries</Text>
+        <Text className={  `text-xs text-gray-400 mb-1`}>District</Text>
         <Picker
             selectedValue={selectedDistrict}
             
@@ -239,12 +240,13 @@ const Contribution = () => {
                 return <Picker.Item key={index} label={item?.district} value={item?.district} />
             })}
         </Picker>
+        <Text className={  `text-xs text-gray-400 mb-1`}>District *</Text>
         <TextInput
           value={region}
           onChangeText={setRegion}
           placeholder="Enter Your Region/Village/Area"
           placeholderTextColor={'#a0a0a0'}
-          className={  `bg-gray-700 text-white p-3 rounded-md my-4`}
+          className={  `bg-gray-700 text-white p-3 rounded-md`}
         />
         {/* <TextInput
           value={city}
@@ -253,7 +255,7 @@ const Contribution = () => {
           placeholderTextColor={'#a0a0a0'}
           className={  `bg-gray-700 text-white p-3 rounded-md mb-2`}
         /> */}
-        
+        <Text className={  `text-xs text-gray-400 mb-1`}>Area *</Text>
         <Picker
             selectedValue={placeType}
             style={{backgroundColor:"#374151",color:placeType?"#fff":"gray", borderRadius:10}}
@@ -266,14 +268,15 @@ const Contribution = () => {
                 return <Picker.Item key={index} label={item?.name} value={item?.name} />
             })}
         </Picker>
+        <Text className={  `text-xs text-gray-400 mb-1`}>Place name *</Text>
         <TextInput
           value={title}
           onChangeText={settitle}
           placeholder="Name of place"
           placeholderTextColor={'#a0a0a0'}
-          className={  `bg-gray-700 text-white p-3 rounded-md my-4`}
+          className={  `bg-gray-700 text-white p-3 rounded-md`}
         />
-
+        <Text className={  `text-xs text-gray-400 mb-1`}>Description*</Text>
         <TextInput
           value={description}
           onChangeText={setdescription}
@@ -281,23 +284,25 @@ const Contribution = () => {
           placeholderTextColor={'#a0a0a0'}
           multiline={true}
           textAlignVertical='top'
-          className={  `bg-gray-700 text-white p-3 h-40 rounded-md mb-4`}
+          className={  `bg-gray-700 text-white p-3 h-40 rounded-md`}
         />
-
+        <Text className={  `text-xs text-gray-400 mb-1`}>Google Map *</Text>
         <TextInput
           value={googlemap}
           onChangeText={setgooglemap}
           placeholder="Google map link"
           placeholderTextColor={'#a0a0a0'}
-          className={  `bg-gray-700 text-white p-3 rounded-md mb-4`}
+          className={  `bg-gray-700 text-white p-3 rounded-md`}
         />
+        <Text className={  `text-xs text-gray-400 mb-1`}>Website</Text>
         <TextInput
           value={website}
           onChangeText={setwebsite}
           placeholder="Website link"
           placeholderTextColor={'#a0a0a0'}
-          className={  `bg-gray-700 text-white p-3 rounded-md mb-4`}
+          className={  `bg-gray-700 text-white p-3 rounded-md`}
         />
+        <Text className={  `text-xs text-gray-400 mb-1`}>Phone *</Text>
         <TextInput
           value={phone}
           onChangeText={setphone}
@@ -309,22 +314,22 @@ const Contribution = () => {
         />
 
         <TouchableOpacity onPress={pickImage} className="bg-gray-700 rounded-md p-3">
-          <Text className="text-center text-gray-100">{isUploading?"Uploading...":'Select Images'}</Text>
+          <Text className="text-center text-gray-100">{isUploading?"Uploading...":uploadeImages.length>=1?"Select More Images":'Select Images'}</Text>
         </TouchableOpacity>
-        <View className="bg-gray-700 rounded-md p-3 mt-2 flex flex-row flex-wrap">
+        {uploadeImages.length>0&&<View className="bg-gray-700 rounded-md p-3 mt-2 flex flex-row flex-wrap">
           {uploadeImages&&uploadeImages.map((item,index)=>{
             return <View key={index} className="relative">
               <TouchableOpacity onPress={()=>filtterImageDelet(item)} className="absolute z-30 rounded-md bg-white p-1"><FontAwesome name='trash' size={16} /></TouchableOpacity>
               <Image  resizeMode='cover' className="h-16 w-16 m-1" source={{uri:item}} />
               </View>
           })}
-        </View>
+        </View>}
 
         {/* Terms and Conditions Checkbox */}
         <View  className="flex-row items-center my-6">
             
             <TouchableOpacity onPress={()=>setisSelectedRule((prev)=>!prev)} className="border-2 border-gray-500 rounded-md h-6 flex justify-center items-center mr-2 w-6">
-            {isSelectedRule&&<View className="bg-green-200 h-4 w-4 rounded-sm"></View>}
+            {isSelectedRule&&<FontAwesome name='check-square' color={'green'} size={20} />}
             </TouchableOpacity>
             <Text className="text-gray-400 w-11/12">I Confirm The Information is Accurate And Agree To The Privacy Policy And Terms.</Text>
         </View>

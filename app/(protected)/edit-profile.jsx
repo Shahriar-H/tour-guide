@@ -161,7 +161,7 @@ const Editprofile = () => {
   
 
   return (
-    <ScrollView className="bg-black p-5">
+    <ScrollView className="bg-gray-900 p-5">
       
       
 
@@ -174,7 +174,7 @@ const Editprofile = () => {
       <View className="flex mb-4 items-center">
         <TouchableOpacity onPress={pickImage} className="bg-gray-700 relative overflow-hidden h-32 w-32 flex justify-center rounded-full">
             {<Text className="text-center absolute z-50 bottom-0 bg-[#0000009b] py-3 w-full text-gray-100">{isUploading?"Uploading...":'Select'}</Text>}
-            {<Image className="h-32 w-32 rounded-full" source={{uri:uploadeImages??userInfo?.image}} />}
+            {(uploadeImages||userInfo?.image)&&<Image className="h-32 w-32 rounded-full" source={{uri:uploadeImages??userInfo?.image}} />}
 
         </TouchableOpacity>
         {uploadeImages&&<Text className="text-center text-white p-2">Save the Changes Now</Text>}

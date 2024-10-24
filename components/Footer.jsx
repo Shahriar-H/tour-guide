@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 const Footer = () => {
     return (
-        <View>
+        <View className="py-5 pb-10">
             {/* Footer Section */}
             <View className="items-center">
                 <Text className="text-gray-400 mb-4">Follow us:</Text>

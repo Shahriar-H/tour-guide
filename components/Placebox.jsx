@@ -43,7 +43,7 @@ const Placebox = ({data,getMyplaces}) => {
   
   return (
     <View>
-      <TouchableOpacity onPress={passData} className={`w-full rounded bg-gray-800 py-5 px-4 mt-4`}>
+      <TouchableOpacity onPress={passData} className={`w-full rounded bg-gray-900 py-5 px-4 mt-4`}>
         <View className="flex flex-row mb-2 items-start border-b pb-2 border-gray-700">
           <Text className="mt-1"><Entypo name="location-pin" size={30} color="white" /></Text>
           <View>
@@ -88,19 +88,19 @@ const Placebox = ({data,getMyplaces}) => {
             href={`/profile?email=${data?.user_info?.email}`}
             className={`flex-row items-center bg-green-400 p-2 rounded-lg mb-2 w-fit`}
           >
-            <Entypo name="phone" size={16} color="white" />
+            <Entypo name="user" size={16} color="white" />
             <Text className={`text-gray-100 ml-2`}>Contact</Text>
           </Link>}
 
         </View>
         
         {sessiondata?.email===data?.user_info?.email&&
-        <TouchableOpacity onPress={()=>setisHowingControllMenu((prev)=>!prev)} className="absolute right-3 bg-gray-800 border border-gray-800 p-1 top-5 z-30">
+        <TouchableOpacity onPress={()=>setisHowingControllMenu((prev)=>!prev)} className="absolute right-3 bg-gray-900 border border-gray-900 p-1 top-5 z-30">
           {isHowingControllMenu?<FontAwesome name="times" size={20} color={'red'} />:<Entypo name="dots-three-vertical" size={20} color="gray" />}
         </TouchableOpacity>}
         
         {isHowingControllMenu&&<View className="absolute z-[10000000000] top-12 right-3">
-          <View className="bg-gray-900 z-50 p-3 rounded-md shadow-md">
+          <View className="bg-gray-800 z-50 p-3 rounded-md shadow-md">
               <Link href={'/editcontribution?id='+data?._id} className="flex p-2 flex-row space-x-1">
                 <Text className="text-gray-400 text-xs"><FontAwesome name="edit" /> Edit this Item</Text>
               </Link>
