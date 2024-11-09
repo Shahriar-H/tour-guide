@@ -223,7 +223,7 @@ const SignUp = () => {
       {/* Name Input */}
       <Text className="text-gray-400 text-xs mb-1">Your Name*</Text>
       <TextInput
-        className="w-full bg-gray-800 text-white text-lg p-3 rounded-lg"
+        className="w-full bg-gray-800 text-white text-lg p-3 rounded-lg mb-3"
         placeholder="Enter Your Full Name"
         placeholderTextColor="gray"
         value={formData?.name}
@@ -233,7 +233,7 @@ const SignUp = () => {
       {/* Email Input */}
       <Text className="text-gray-400 text-xs mb-1">Your Email*</Text>
       <TextInput
-        className="w-full bg-gray-800 text-white text-lg p-3 rounded-lg "
+        className="w-full bg-gray-800 text-white text-lg p-3 rounded-lg mb-3"
         placeholder="Enter Your Email"
         placeholderTextColor="gray"
         value={formData?.email}
@@ -242,7 +242,7 @@ const SignUp = () => {
       {/* Phone Input */}
       <Text className="text-gray-400 text-xs mb-1">Phone Number*</Text>
       <TextInput
-        className="w-full bg-gray-800 text-white text-lg p-3 rounded-lg"
+        className="w-full bg-gray-800 text-white text-lg p-3 rounded-lg mb-3"
         placeholder="Enter Your Phone"
         placeholderTextColor="gray"
         maxLength={11}
@@ -260,12 +260,12 @@ const SignUp = () => {
       <Text className="text-gray-400 text-xs mb-1">District*</Text>
       <Picker
         selectedValue={selectedDistrict}
-        style={{backgroundColor:"#1f2937",color:selectedDistrict?"#fff":"gray", borderRadius:10}}
+        style={{backgroundColor:"#1f2937",color:selectedDistrict?"#fff":"gray", borderRadius:10,marginBottom:12}}
         onValueChange={(itemValue, itemIndex) =>
           setselectedDistrict(itemValue)
         }>
-        {/* <Picker.Item label="Java" value="java" />
-        <Picker.Item label="JavaScript" value="js" /> */}
+        {/* <Picker.Item label="Java" value="java" /> */}
+        <Picker.Item label="Select District" value="" />
         {districts.length>0&&districts?.map((item,index)=>{
           return <Picker.Item key={index} label={item?.district} value={item?.district} />
         })}
@@ -275,7 +275,7 @@ const SignUp = () => {
       <Text className="text-gray-400 text-xs mb-1">Password*</Text>
       <View className="relative">
         <TextInput
-          className="w-full bg-gray-800 text-white text-lg p-3 rounded-lg"
+          className="w-full bg-gray-800 text-white text-lg p-3 rounded-lg mb-3"
           placeholder="Enter Your Password"
           placeholderTextColor="gray"
           secureTextEntry={!showPassword}

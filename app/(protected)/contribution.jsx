@@ -230,7 +230,7 @@ const Contribution = () => {
         <Picker
             selectedValue={selectedDistrict}
             
-            style={{backgroundColor:"#374151",color:selectedDistrict?"#fff":"gray", borderRadius:10}}
+            style={{backgroundColor:"#374151",color:selectedDistrict?"#fff":"gray", borderRadius:10, marginBottom:12}}
             onValueChange={(itemValue, itemIndex) =>
             setselectedDistrict(itemValue)
             }>
@@ -246,7 +246,7 @@ const Contribution = () => {
           onChangeText={setRegion}
           placeholder="Enter Your Region/Village/Area"
           placeholderTextColor={'#a0a0a0'}
-          className={  `bg-gray-700 text-white p-3 rounded-md`}
+          className={  `bg-gray-700 text-white p-3 rounded-md mb-3`}
         />
         {/* <TextInput
           value={city}
@@ -258,7 +258,7 @@ const Contribution = () => {
         <Text className={  `text-xs text-gray-400 mb-1`}>Area *</Text>
         <Picker
             selectedValue={placeType}
-            style={{backgroundColor:"#374151",color:placeType?"#fff":"gray", borderRadius:10}}
+            style={{backgroundColor:"#374151",color:placeType?"#fff":"gray", borderRadius:10, marginBottom:12}}
             onValueChange={(itemValue, itemIndex) =>
             setPlaceType(itemValue)
             }>
@@ -274,7 +274,7 @@ const Contribution = () => {
           onChangeText={settitle}
           placeholder="Name of place"
           placeholderTextColor={'#a0a0a0'}
-          className={  `bg-gray-700 text-white p-3 rounded-md`}
+          className={  `bg-gray-700 text-white p-3 rounded-md mb-3`}
         />
         <Text className={  `text-xs text-gray-400 mb-1`}>Description*</Text>
         <TextInput
@@ -284,7 +284,7 @@ const Contribution = () => {
           placeholderTextColor={'#a0a0a0'}
           multiline={true}
           textAlignVertical='top'
-          className={  `bg-gray-700 text-white p-3 h-40 rounded-md`}
+          className={  `bg-gray-700 text-white p-3 h-40 rounded-md mb-3`}
         />
         <Text className={  `text-xs text-gray-400 mb-1`}>Google Map *</Text>
         <TextInput
@@ -292,7 +292,7 @@ const Contribution = () => {
           onChangeText={setgooglemap}
           placeholder="Google map link"
           placeholderTextColor={'#a0a0a0'}
-          className={  `bg-gray-700 text-white p-3 rounded-md`}
+          className={  `bg-gray-700 text-white p-3 rounded-md mb-3`}
         />
         <Text className={  `text-xs text-gray-400 mb-1`}>Website</Text>
         <TextInput
@@ -300,7 +300,7 @@ const Contribution = () => {
           onChangeText={setwebsite}
           placeholder="Website link"
           placeholderTextColor={'#a0a0a0'}
-          className={  `bg-gray-700 text-white p-3 rounded-md`}
+          className={  `bg-gray-700 text-white p-3 rounded-md mb-3`}
         />
         <Text className={  `text-xs text-gray-400 mb-1`}>Phone *</Text>
         <TextInput

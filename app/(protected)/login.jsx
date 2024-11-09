@@ -140,6 +140,13 @@ const SignIn = () => {
         {isLoading&&<TouchableOpacity onPress={()=>setisLoading(false)} className="w-full bg-gray-500 py-3 rounded-lg items-center mb-6">
           <Text className="text-white text-lg font-bold">Sign In Now</Text>
         </TouchableOpacity>}
+
+        <Text className="text-white mb-6">
+          You don't have account?{' '}
+          <Link href="/signup">
+            <Text className="text-blue-400">Create Account</Text>
+          </Link>
+        </Text>
       </View>
 
       {/* Footer Section */}

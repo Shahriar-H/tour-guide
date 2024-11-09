@@ -61,7 +61,8 @@ export default function DrawerLayout() {
             headerStyle:{backgroundColor:"#000"},
             drawerStyle:{backgroundColor:'#000'},
             drawerLabelStyle:{color:'#fff'},
-            headerTitleStyle:{display:'none'}
+            headerTitleStyle:{display:'none'},
+            drawerActiveBackgroundColor:'green'
         
             })}
       >
@@ -70,6 +71,8 @@ export default function DrawerLayout() {
           name={"index"} // This is the name of the page and must match the url from root
           options={{
             drawerLabel: 'Home',
+            
+
           }}
         />
         

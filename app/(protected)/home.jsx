@@ -67,7 +67,7 @@ const Home = () => {
           className={  `bg-gray-700 text-white p-3 rounded-md mb-4`}
         />
         <TouchableOpacity
-          className={  `bg-blue-500 text-white p-3 rounded-md`}
+          className={  `bg-green-500 text-white p-3 rounded-md`}
           onPress={handleFindPlace}
         >
           <Text className="text-center text-md font-bold">FIND THE PLACE</Text>

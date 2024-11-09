@@ -6,6 +6,9 @@ import useSessionget from '../hooks/useSessionget';
 import { initialState, reducer } from '../assets/lib';
 import { useIsFocused } from '@react-navigation/native';
 import { useState } from 'react';
+import { SplashScreen } from 'expo-router';
+
+SplashScreen.preventAutoHideAsync()
 
 export const AuthProvider = createContext();
 
@@ -15,15 +18,22 @@ const Layout = () => {
     const isFocused = useIsFocused()
     const [userData, setuserData] = useState(data);
     const [isLoading, setisLoading] = useState(true);
+
    
     useEffect(() => {
         console.log('stated35',data);
         if(data?.name){
             setuserData(data)
+            
             dispatch({type:"login",payload:data})
             setisLoading(false)
         }
     }, [data?.name,isFocused]);
+
+    setTimeout(() => {
+        SplashScreen.hideAsync()
+    }, 4000);
+    
 
     const logoutFun = ()=>{
         setuserData({})

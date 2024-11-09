@@ -128,8 +128,7 @@ const NearestPlace = () => {
         
         
         <TouchableOpacity
-          
-          className={  `bg-blue-500 mt-2 text-white p-4 rounded-md`}
+          className={`bg-green-500 mt-2 text-white p-4 rounded-md`}
           onPress={filterQuery}
         >
           <Text className="text-center text-md font-bold">FIND THE PLACE</Text>
